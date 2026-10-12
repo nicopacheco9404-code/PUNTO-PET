@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Punto Pets</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+.app{max-width:430px;min-height:100vh;margin:auto;background:white;box-shadow:0 0 30px #0001}
+header{padding:22px 24px;background:#173b57;color:white;display:flex;align-items:center;gap:12px}
+.logo{font-size:28px}.brand{font-size:23px;font-weight:700}
+main{padding:26px 22px}.screen{display:none}.screen.active{display:block}
+h1{font-size:30px;margin:12px 0}.sub{color:#667085;line-height:1.5}
+.btn{width:100%;padding:15px;border:0;border-radius:12px;margin-top:12px;background:#f28c28;color:white;font-size:16px;font-weight:700;cursor:pointer}
+.btn.alt{background:#173b57}.btn.light{background:#eef3f7;color:#173b57}
+label{display:block;font-weight:700;margin:14px 0 6px}input,select{width:100%;padding:13px;border:1px solid #d5dce5;border-radius:10px;font-size:15px}
+.card{padding:18px;border:1px solid #e3e8ef;border-radius:15px;margin:12px 0}.paw{font-size:52px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.small{font-size:13px;color:#667085}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo">🐾</div><div class="brand">Punto Pets</div></header>
+<main>
+<section id="welcome" class="screen active">
+<div class="paw">🐶 🐱</div><h1>Bienvenido a Punto Pets</h1>
+<p class="sub">Conectamos dueños de mascotas con paseadores de confianza.</p>
+<button class="btn" onclick="show('register')">Registrarme</button>
+<button class="btn alt" onclick="show('register')">Iniciar sesión</button>
+</section>
+
+<section id="register" class="screen">
+<h1>Crear cuenta</h1><p class="sub">Completá tus datos para comenzar.</p>
+<label>Nombre</label><input placeholder="Tu nombre">
+<label>Apellido</label><input placeholder="Tu apellido">
+<label>Fecha de nacimiento</label><input type="date">
+<label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com">
+<label>Teléfono</label><input placeholder="11 1234 5678">
+<label>Contraseña</label><input type="password" placeholder="••••••••">
+<button class="btn" onclick="show('role')">Continuar</button>
+</section>
+
+<section id="role" class="screen">
+<h1>¿Cómo vas a usar Punto Pets?</h1><p class="sub">Elegí tu perfil para continuar.</p>
+<button class="btn" onclick="show('address')">🐾 Soy dueño de mascota</button>
+<button class="btn alt" onclick="show('home')">🚶 Soy paseador</button>
+</section>
+
+<section id="address" class="screen">
+<h1>Tu ubicación</h1><p class="sub">La dirección se usa para coordinar paseos y se mantiene protegida.</p>
+<label>Dirección</label><input placeholder="Calle y número">
+<label>Ciudad</label><input placeholder="Ciudad">
+<button class="btn" onclick="show('pet')">Continuar</button>
+</section>
+
+<section id="pet" class="screen">
+<h1>Mi mascota</h1><p class="sub">Cargá los datos de tu mascota.</p>
+<label>Nombre</label><input placeholder="Ej. Toby">
+<label>Especie</label><select><option>Perro</option><option>Gato</option><option>Otro</option></select>
+<label>Raza</label><input placeholder="Raza">
+<div class="grid"><div><label>Edad</label><input placeholder="2 años"></div><div><label>Tamaño</label><select><option>Pequeño</option><option>Mediano</option><option>Grande</option></select></div></div>
+<label>Cuidados especiales</label><input placeholder="Información importante">
+<button class="btn" onclick="show('home')">Guardar mascota</button>
+</section>
+
+<section id="home" class="screen">
+<h1>Hola 👋</h1><p class="sub">Bienvenido a tu panel de Punto Pets.</p>
+<div class="card"><b>🐕 Buscar paseador</b><p class="small">Elegí fecha, horario y duración.</p><button class="btn" onclick="alert('Función de búsqueda: próxima etapa del prototipo')">Buscar</button></div>
+<div class="grid">
+<div class="card"><b>🐾 Mis mascotas</b></div><div class="card"><b>📅 Mis reservas</b></div>
+<div class="card"><b>👤 Mi perfil</b></div><div class="card"><b>🎁 Promociones</b></div>
+</div>
+<p class="small">Prototipo inicial: los pagos y GPS todavía son simulados.</p>
+</section>
+</main>
+</div>
+<script>
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+</script>
+</body>
+</html>
